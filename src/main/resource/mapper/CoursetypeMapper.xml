@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.myyl.mapper.CoursetypeMapper">
+  <resultMap id="BaseResultMap" type="com.myyl.pojo.Coursetype">
+    <id column="typeId" jdbcType="VARCHAR" property="typeid" />
+    <result column="ctname" jdbcType="VARCHAR" property="ctname" />
+    <result column="partype" jdbcType="VARCHAR" property="partype" />
+    <result column="remark" jdbcType="VARCHAR" property="remark" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    typeId, ctname, partype, remark
+  </sql>
+  <select id="selectByExample" parameterType="com.myyl.pojo.CoursetypeExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from Coursetype
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from Coursetype
+    where typeId = #{typeid,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from Coursetype
+    where typeId = #{typeid,jdbcType=VARCHAR}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.myyl.pojo.CoursetypeExample">
+    delete from Coursetype
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.myyl.pojo.Coursetype">
+    insert into Coursetype (typeId, ctname, partype,
+      remark)
+    values (#{typeid,jdbcType=VARCHAR}, #{ctname,jdbcType=VARCHAR}, #{partype,jdbcType=VARCHAR}, 
+      #{remark,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.myyl.pojo.Coursetype">
+    insert into Coursetype
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="typeid != null">
+        typeId,
+      </if>
+      <if test="ctname != null">
+        ctname,
+      </if>
+      <if test="partype != null">
+        partype,
+      </if>
+      <if test="remark != null">
+        remark,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="typeid != null">
+        #{typeid,jdbcType=VARCHAR},
+      </if>
+      <if test="ctname != null">
+        #{ctname,jdbcType=VARCHAR},
+      </if>
+      <if test="partype != null">
+        #{partype,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null">
+        #{remark,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.myyl.pojo.CoursetypeExample" resultType="java.lang.Long">
+    select count(*) from Coursetype
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update Coursetype
+    <set>
+      <if test="record.typeid != null">
+        typeId = #{record.typeid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.ctname != null">
+        ctname = #{record.ctname,jdbcType=VARCHAR},
+      </if>
+      <if test="record.partype != null">
+        partype = #{record.partype,jdbcType=VARCHAR},
+      </if>
+      <if test="record.remark != null">
+        remark = #{record.remark,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update Coursetype
+    set typeId = #{record.typeid,jdbcType=VARCHAR},
+      ctname = #{record.ctname,jdbcType=VARCHAR},
+      partype = #{record.partype,jdbcType=VARCHAR},
+      remark = #{record.remark,jdbcType=VARCHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.myyl.pojo.Coursetype">
+    update Coursetype
+    <set>
+      <if test="ctname != null">
+        ctname = #{ctname,jdbcType=VARCHAR},
+      </if>
+      <if test="partype != null">
+        partype = #{partype,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null">
+        remark = #{remark,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where typeId = #{typeid,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.myyl.pojo.Coursetype">
+    update Coursetype
+    set ctname = #{ctname,jdbcType=VARCHAR},
+      partype = #{partype,jdbcType=VARCHAR},
+      remark = #{remark,jdbcType=VARCHAR}
+    where typeId = #{typeid,jdbcType=VARCHAR}
+  </update>
+</mapper>

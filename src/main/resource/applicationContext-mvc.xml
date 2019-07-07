@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+                           http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+                           http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd">
+    <!-- 1.注解驱动 -->
+    <mvc:annotation-driven/>
+    <!-- 2.扫描controller包 -->
+    <context:component-scan base-package="com.myyl.controller"/>
+    <context:component-scan base-package="com.myyl.usersystem.controller"/>
+    <context:component-scan base-package="com.myyl.magsystem.controller"/>
+
+    <mvc:default-servlet-handler/>
+    <mvc:resources mapping="/static/**" location="/WEB-INF/static/" />
+    <mvc:resources mapping="/datas/**" location="/WEB-INF/datas/" />
+    <!-- 3.内部资源视图解析器，suffix为空，方便跟参数 url?id=xxx -->
+    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <property name="prefix" value="/WEB-INF/page/"/>
+        <property name="suffix" value=".jsp"/>
+    </bean>
+
+    <!-- 开启文件提交 文件上传解析器 -->
+    <bean id="multipartResolver"
+          class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+        <property name="defaultEncoding" value="UTF-8"/>
+    </bean>
+
+    <!--<bean class="com.myyl.exception.GlobalExceptionHandler"/>-->
+    <!-- 4.拦截器配置，-->
+    <mvc:interceptors>
+        <mvc:interceptor>
+            <mvc:mapping path="/user/**"/>
+            <mvc:mapping path="/manage/**"/>
+            <bean class="com.myyl.interceptor.LoginInterceptor">
+                <property name="exceptUrls">
+                    <list>
+                        <value>/user/forgetPwd</value>
+                        <value>/500</value>
+                        <value>/captcha</value>
+                    </list>
+                </property>
+            </bean>
+        </mvc:interceptor>
+    </mvc:interceptors>
+    
+</beans>

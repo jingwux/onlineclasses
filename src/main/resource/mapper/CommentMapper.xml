@@ -1,0 +1,249 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.myyl.mapper.CommentMapper">
+  <resultMap id="BaseResultMap" type="com.myyl.pojo.Comment">
+    <id column="comid" jdbcType="VARCHAR" property="comid" />
+    <result column="qid" jdbcType="VARCHAR" property="qid" />
+    <result column="content" jdbcType="VARCHAR" property="content" />
+    <result column="likenum" jdbcType="INTEGER" property="likenum" />
+    <result column="uid" jdbcType="VARCHAR" property="uid" />
+    <result column="reuid" jdbcType="VARCHAR" property="reuid" />
+    <result column="remark" jdbcType="VARCHAR" property="remark" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    comid, qid, content, likenum, `uid`, reuid, remark
+  </sql>
+  <select id="selectByExample" parameterType="com.myyl.pojo.CommentExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from comment
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+    <if test="limit != null">
+      <if test="offset != null">
+        limit ${offset}, ${limit}
+      </if>
+      <if test="offset == null">
+        limit ${limit}
+      </if>
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from comment
+    where comid = #{comid,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from comment
+    where comid = #{comid,jdbcType=VARCHAR}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.myyl.pojo.CommentExample">
+    delete from comment
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" keyColumn="comid" keyProperty="comid" parameterType="com.myyl.pojo.Comment" useGeneratedKeys="true">
+    insert into comment (qid, content, likenum, 
+      `uid`, reuid, remark)
+    values (#{qid,jdbcType=VARCHAR}, #{content,jdbcType=VARCHAR}, #{likenum,jdbcType=INTEGER}, 
+      #{uid,jdbcType=VARCHAR}, #{reuid,jdbcType=VARCHAR}, #{remark,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" keyColumn="comid" keyProperty="comid" parameterType="com.myyl.pojo.Comment" useGeneratedKeys="true">
+    insert into comment
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="comid != null">
+      comid,
+      </if>
+      <if test="qid != null">
+        qid,
+      </if>
+      <if test="content != null">
+        content,
+      </if>
+      <if test="likenum != null">
+        likenum,
+      </if>
+      <if test="uid != null">
+        `uid`,
+      </if>
+      <if test="reuid != null">
+        reuid,
+      </if>
+      <if test="remark != null">
+        remark,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="comid != null">
+        #{comid,jdbcType=VARCHAR},
+      </if>
+      <if test="qid != null">
+        #{qid,jdbcType=VARCHAR},
+      </if>
+      <if test="content != null">
+        #{content,jdbcType=VARCHAR},
+      </if>
+      <if test="likenum != null">
+        #{likenum,jdbcType=INTEGER},
+      </if>
+      <if test="uid != null">
+        #{uid,jdbcType=VARCHAR},
+      </if>
+      <if test="reuid != null">
+        #{reuid,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null">
+        #{remark,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.myyl.pojo.CommentExample" resultType="java.lang.Long">
+    select count(*) from comment
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update comment
+    <set>
+      <if test="record.comid != null">
+        comid = #{record.comid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.qid != null">
+        qid = #{record.qid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.content != null">
+        content = #{record.content,jdbcType=VARCHAR},
+      </if>
+      <if test="record.likenum != null">
+        likenum = #{record.likenum,jdbcType=INTEGER},
+      </if>
+      <if test="record.uid != null">
+        `uid` = #{record.uid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.reuid != null">
+        reuid = #{record.reuid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.remark != null">
+        remark = #{record.remark,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update comment
+    set comid = #{record.comid,jdbcType=VARCHAR},
+      qid = #{record.qid,jdbcType=VARCHAR},
+      content = #{record.content,jdbcType=VARCHAR},
+      likenum = #{record.likenum,jdbcType=INTEGER},
+      `uid` = #{record.uid,jdbcType=VARCHAR},
+      reuid = #{record.reuid,jdbcType=VARCHAR},
+      remark = #{record.remark,jdbcType=VARCHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.myyl.pojo.Comment">
+    update comment
+    <set>
+      <if test="qid != null">
+        qid = #{qid,jdbcType=VARCHAR},
+      </if>
+      <if test="content != null">
+        content = #{content,jdbcType=VARCHAR},
+      </if>
+      <if test="likenum != null">
+        likenum = #{likenum,jdbcType=INTEGER},
+      </if>
+      <if test="uid != null">
+        `uid` = #{uid,jdbcType=VARCHAR},
+      </if>
+      <if test="reuid != null">
+        reuid = #{reuid,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null">
+        remark = #{remark,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where comid = #{comid,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.myyl.pojo.Comment">
+    update comment
+    set qid = #{qid,jdbcType=VARCHAR},
+      content = #{content,jdbcType=VARCHAR},
+      likenum = #{likenum,jdbcType=INTEGER},
+      `uid` = #{uid,jdbcType=VARCHAR},
+      reuid = #{reuid,jdbcType=VARCHAR},
+      remark = #{remark,jdbcType=VARCHAR}
+    where comid = #{comid,jdbcType=VARCHAR}
+  </update>
+</mapper>

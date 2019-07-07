@@ -1,0 +1,323 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.myyl.mapper.ExerciseMapper">
+  <resultMap id="BaseResultMap" type="com.myyl.pojo.Exercise">
+    <id column="eid" jdbcType="VARCHAR" property="eid" />
+    <result column="ename" jdbcType="VARCHAR" property="ename" />
+    <result column="startime" jdbcType="TIMESTAMP" property="startime" />
+    <result column="endtime" jdbcType="TIMESTAMP" property="endtime" />
+    <result column="demand" jdbcType="VARCHAR" property="demand" />
+    <result column="content" jdbcType="VARCHAR" property="content" />
+    <result column="attachment" jdbcType="VARCHAR" property="attachment" />
+    <result column="score" jdbcType="VARCHAR" property="score" />
+    <result column="STATUS" jdbcType="VARCHAR" property="status" />
+    <result column="pareid" jdbcType="VARCHAR" property="pareid" />
+    <result column="uid" jdbcType="VARCHAR" property="uid" />
+    <result column="remark" jdbcType="VARCHAR" property="remark" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    eid, ename, startime, endtime, demand, content, attachment, score, STATUS, pareid, 
+    uid, remark
+  </sql>
+  <select id="selectByExample" parameterType="com.myyl.pojo.ExerciseExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from exercise
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from exercise
+    where eid = #{eid,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from exercise
+    where eid = #{eid,jdbcType=VARCHAR}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.myyl.pojo.ExerciseExample">
+    delete from exercise
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.myyl.pojo.Exercise">
+    insert into exercise (eid, ename, startime, 
+      endtime, demand, content, 
+      attachment, score, STATUS, 
+      pareid, uid, remark
+      )
+    values (#{eid,jdbcType=VARCHAR}, #{ename,jdbcType=VARCHAR}, #{startime,jdbcType=TIMESTAMP}, 
+      #{endtime,jdbcType=TIMESTAMP}, #{demand,jdbcType=VARCHAR}, #{content,jdbcType=VARCHAR}, 
+      #{attachment,jdbcType=VARCHAR}, #{score,jdbcType=VARCHAR}, #{status,jdbcType=VARCHAR}, 
+      #{pareid,jdbcType=VARCHAR}, #{uid,jdbcType=VARCHAR}, #{remark,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.myyl.pojo.Exercise">
+    insert into exercise
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="eid != null">
+        eid,
+      </if>
+      <if test="ename != null">
+        ename,
+      </if>
+      <if test="startime != null">
+        startime,
+      </if>
+      <if test="endtime != null">
+        endtime,
+      </if>
+      <if test="demand != null">
+        demand,
+      </if>
+      <if test="content != null">
+        content,
+      </if>
+      <if test="attachment != null">
+        attachment,
+      </if>
+      <if test="score != null">
+        score,
+      </if>
+      <if test="status != null">
+        STATUS,
+      </if>
+      <if test="pareid != null">
+        pareid,
+      </if>
+      <if test="uid != null">
+        uid,
+      </if>
+      <if test="remark != null">
+        remark,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="eid != null">
+        #{eid,jdbcType=VARCHAR},
+      </if>
+      <if test="ename != null">
+        #{ename,jdbcType=VARCHAR},
+      </if>
+      <if test="startime != null">
+        #{startime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="endtime != null">
+        #{endtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="demand != null">
+        #{demand,jdbcType=VARCHAR},
+      </if>
+      <if test="content != null">
+        #{content,jdbcType=VARCHAR},
+      </if>
+      <if test="attachment != null">
+        #{attachment,jdbcType=VARCHAR},
+      </if>
+      <if test="score != null">
+        #{score,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="pareid != null">
+        #{pareid,jdbcType=VARCHAR},
+      </if>
+      <if test="uid != null">
+        #{uid,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null">
+        #{remark,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.myyl.pojo.ExerciseExample" resultType="java.lang.Long">
+    select count(*) from exercise
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update exercise
+    <set>
+      <if test="record.eid != null">
+        eid = #{record.eid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.ename != null">
+        ename = #{record.ename,jdbcType=VARCHAR},
+      </if>
+      <if test="record.startime != null">
+        startime = #{record.startime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.endtime != null">
+        endtime = #{record.endtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.demand != null">
+        demand = #{record.demand,jdbcType=VARCHAR},
+      </if>
+      <if test="record.content != null">
+        content = #{record.content,jdbcType=VARCHAR},
+      </if>
+      <if test="record.attachment != null">
+        attachment = #{record.attachment,jdbcType=VARCHAR},
+      </if>
+      <if test="record.score != null">
+        score = #{record.score,jdbcType=VARCHAR},
+      </if>
+      <if test="record.status != null">
+        STATUS = #{record.status,jdbcType=VARCHAR},
+      </if>
+      <if test="record.pareid != null">
+        pareid = #{record.pareid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.uid != null">
+        uid = #{record.uid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.remark != null">
+        remark = #{record.remark,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update exercise
+    set eid = #{record.eid,jdbcType=VARCHAR},
+      ename = #{record.ename,jdbcType=VARCHAR},
+      startime = #{record.startime,jdbcType=TIMESTAMP},
+      endtime = #{record.endtime,jdbcType=TIMESTAMP},
+      demand = #{record.demand,jdbcType=VARCHAR},
+      content = #{record.content,jdbcType=VARCHAR},
+      attachment = #{record.attachment,jdbcType=VARCHAR},
+      score = #{record.score,jdbcType=VARCHAR},
+      STATUS = #{record.status,jdbcType=VARCHAR},
+      pareid = #{record.pareid,jdbcType=VARCHAR},
+      uid = #{record.uid,jdbcType=VARCHAR},
+      remark = #{record.remark,jdbcType=VARCHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.myyl.pojo.Exercise">
+    update exercise
+    <set>
+      <if test="ename != null">
+        ename = #{ename,jdbcType=VARCHAR},
+      </if>
+      <if test="startime != null">
+        startime = #{startime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="endtime != null">
+        endtime = #{endtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="demand != null">
+        demand = #{demand,jdbcType=VARCHAR},
+      </if>
+      <if test="content != null">
+        content = #{content,jdbcType=VARCHAR},
+      </if>
+      <if test="attachment != null">
+        attachment = #{attachment,jdbcType=VARCHAR},
+      </if>
+      <if test="score != null">
+        score = #{score,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        STATUS = #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="pareid != null">
+        pareid = #{pareid,jdbcType=VARCHAR},
+      </if>
+      <if test="uid != null">
+        uid = #{uid,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null">
+        remark = #{remark,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where eid = #{eid,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.myyl.pojo.Exercise">
+    update exercise
+    set ename = #{ename,jdbcType=VARCHAR},
+      startime = #{startime,jdbcType=TIMESTAMP},
+      endtime = #{endtime,jdbcType=TIMESTAMP},
+      demand = #{demand,jdbcType=VARCHAR},
+      content = #{content,jdbcType=VARCHAR},
+      attachment = #{attachment,jdbcType=VARCHAR},
+      score = #{score,jdbcType=VARCHAR},
+      STATUS = #{status,jdbcType=VARCHAR},
+      pareid = #{pareid,jdbcType=VARCHAR},
+      uid = #{uid,jdbcType=VARCHAR},
+      remark = #{remark,jdbcType=VARCHAR}
+    where eid = #{eid,jdbcType=VARCHAR}
+  </update>
+</mapper>

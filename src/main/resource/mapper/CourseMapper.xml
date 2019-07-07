@@ -1,0 +1,361 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.myyl.mapper.CourseMapper">
+  <resultMap id="BaseResultMap" type="com.myyl.pojo.Course">
+    <id column="cid" jdbcType="VARCHAR" property="cid" />
+    <result column="cname" jdbcType="VARCHAR" property="cname" />
+    <result column="uid" jdbcType="VARCHAR" property="uid" />
+    <result column="startime" jdbcType="VARCHAR" property="startime" />
+    <result column="updatetime" jdbcType="VARCHAR" property="updatetime" />
+    <result column="intro" jdbcType="VARCHAR" property="intro" />
+    <result column="content" jdbcType="VARCHAR" property="content" />
+    <result column="typeId" jdbcType="VARCHAR" property="typeid" />
+    <result column="courseImg" jdbcType="VARCHAR" property="courseimg" />
+    <result column="files" jdbcType="VARCHAR" property="files" />
+    <result column="total" jdbcType="VARCHAR" property="total" />
+    <result column="accessNum" jdbcType="VARCHAR" property="accessnum" />
+    <result column="remark" jdbcType="VARCHAR" property="remark" />
+    <result column="status" jdbcType="BIT" property="status" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    cid, cname, `uid`, startime, updatetime, intro, content, typeId, courseImg, files, 
+    total, accessNum, remark, `status`
+  </sql>
+  <select id="selectByExample" parameterType="com.myyl.pojo.CourseExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from course
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+    <if test="limit != null">
+      <if test="offset != null">
+        limit ${offset}, ${limit}
+      </if>
+      <if test="offset == null">
+        limit ${limit}
+      </if>
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from course
+    where cid = #{cid,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from course
+    where cid = #{cid,jdbcType=VARCHAR}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.myyl.pojo.CourseExample">
+    delete from course
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" keyColumn="cid" keyProperty="cid" parameterType="com.myyl.pojo.Course" useGeneratedKeys="true">
+    insert into course (cname, `uid`, startime, 
+      updatetime, intro, content, 
+      typeId, courseImg, files, 
+      total, accessNum, remark, 
+      `status`)
+    values (#{cname,jdbcType=VARCHAR}, #{uid,jdbcType=VARCHAR}, #{startime,jdbcType=VARCHAR}, 
+      #{updatetime,jdbcType=VARCHAR}, #{intro,jdbcType=VARCHAR}, #{content,jdbcType=VARCHAR}, 
+      #{typeid,jdbcType=VARCHAR}, #{courseimg,jdbcType=VARCHAR}, #{files,jdbcType=VARCHAR}, 
+      #{total,jdbcType=VARCHAR}, #{accessnum,jdbcType=INTEGER}, #{remark,jdbcType=VARCHAR},
+      #{status,jdbcType=BIT})
+  </insert>
+  <insert id="insertSelective" keyColumn="cid" keyProperty="cid" parameterType="com.myyl.pojo.Course" useGeneratedKeys="true">
+    insert into course
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="cid != null">
+        cid,
+      </if>
+      <if test="cname != null">
+        cname,
+      </if>
+      <if test="uid != null">
+        `uid`,
+      </if>
+      <if test="startime != null">
+        startime,
+      </if>
+      <if test="updatetime != null">
+        updatetime,
+      </if>
+      <if test="intro != null">
+        intro,
+      </if>
+      <if test="content != null">
+        content,
+      </if>
+      <if test="typeid != null">
+        typeId,
+      </if>
+      <if test="courseimg != null">
+        courseImg,
+      </if>
+      <if test="files != null">
+        files,
+      </if>
+      <if test="total != null">
+        total,
+      </if>
+      <if test="accessnum != null">
+        accessNum,
+      </if>
+      <if test="remark != null">
+        remark,
+      </if>
+      <if test="status != null">
+        `status`,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="cid != null">
+        #{cid,jdbcType=VARCHAR},
+      </if>
+      <if test="cname != null">
+        #{cname,jdbcType=VARCHAR},
+      </if>
+      <if test="uid != null">
+        #{uid,jdbcType=VARCHAR},
+      </if>
+      <if test="startime != null">
+        #{startime,jdbcType=VARCHAR},
+      </if>
+      <if test="updatetime != null">
+        #{updatetime,jdbcType=VARCHAR},
+      </if>
+      <if test="intro != null">
+        #{intro,jdbcType=VARCHAR},
+      </if>
+      <if test="content != null">
+        #{content,jdbcType=VARCHAR},
+      </if>
+      <if test="typeid != null">
+        #{typeid,jdbcType=VARCHAR},
+      </if>
+      <if test="courseimg != null">
+        #{courseimg,jdbcType=VARCHAR},
+      </if>
+      <if test="files != null">
+        #{files,jdbcType=VARCHAR},
+      </if>
+      <if test="total != null">
+        #{total,jdbcType=VARCHAR},
+      </if>
+      <if test="accessnum != null">
+        #{accessnum,jdbcType=INTEGER},
+      </if>
+      <if test="remark != null">
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=BIT},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.myyl.pojo.CourseExample" resultType="java.lang.Long">
+    select count(*) from course
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update course
+    <set>
+      <if test="record.cid != null">
+        cid = #{record.cid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cname != null">
+        cname = #{record.cname,jdbcType=VARCHAR},
+      </if>
+      <if test="record.uid != null">
+        `uid` = #{record.uid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.startime != null">
+        startime = #{record.startime,jdbcType=VARCHAR},
+      </if>
+      <if test="record.updatetime != null">
+        updatetime = #{record.updatetime,jdbcType=VARCHAR},
+      </if>
+      <if test="record.intro != null">
+        intro = #{record.intro,jdbcType=VARCHAR},
+      </if>
+      <if test="record.content != null">
+        content = #{record.content,jdbcType=VARCHAR},
+      </if>
+      <if test="record.typeid != null">
+        typeId = #{record.typeid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.courseimg != null">
+        courseImg = #{record.courseimg,jdbcType=VARCHAR},
+      </if>
+      <if test="record.files != null">
+        files = #{record.files,jdbcType=VARCHAR},
+      </if>
+      <if test="record.total != null">
+        total = #{record.total,jdbcType=VARCHAR},
+      </if>
+      <if test="record.accessnum != null">
+        accessNum = #{record.accessnum,jdbcType=INTEGER},
+      </if>
+      <if test="record.remark != null">
+        remark = #{record.remark,jdbcType=VARCHAR},
+      </if>
+      <if test="record.status != null">
+        `status` = #{record.status,jdbcType=BIT},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update course
+    set cid = #{record.cid,jdbcType=VARCHAR},
+      cname = #{record.cname,jdbcType=VARCHAR},
+      `uid` = #{record.uid,jdbcType=VARCHAR},
+      startime = #{record.startime,jdbcType=VARCHAR},
+      updatetime = #{record.updatetime,jdbcType=VARCHAR},
+      intro = #{record.intro,jdbcType=VARCHAR},
+      content = #{record.content,jdbcType=VARCHAR},
+      typeId = #{record.typeid,jdbcType=VARCHAR},
+      courseImg = #{record.courseimg,jdbcType=VARCHAR},
+      files = #{record.files,jdbcType=VARCHAR},
+      total = #{record.total,jdbcType=VARCHAR},
+      accessNum = #{record.accessnum,jdbcType=INTEGER},
+      remark = #{record.remark,jdbcType=VARCHAR},
+      `status` = #{record.status,jdbcType=BIT}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.myyl.pojo.Course">
+    update course
+    <set>
+      <if test="cname != null">
+        cname = #{cname,jdbcType=VARCHAR},
+      </if>
+      <if test="uid != null">
+        `uid` = #{uid,jdbcType=VARCHAR},
+      </if>
+      <if test="startime != null">
+        startime = #{startime,jdbcType=VARCHAR},
+      </if>
+      <if test="updatetime != null">
+        updatetime = #{updatetime,jdbcType=VARCHAR},
+      </if>
+      <if test="intro != null">
+        intro = #{intro,jdbcType=VARCHAR},
+      </if>
+      <if test="content != null">
+        content = #{content,jdbcType=VARCHAR},
+      </if>
+      <if test="typeid != null">
+        typeId = #{typeid,jdbcType=VARCHAR},
+      </if>
+      <if test="courseimg != null">
+        courseImg = #{courseimg,jdbcType=VARCHAR},
+      </if>
+      <if test="files != null">
+        files = #{files,jdbcType=VARCHAR},
+      </if>
+      <if test="total != null">
+        total = #{total,jdbcType=VARCHAR},
+      </if>
+      <if test="accessnum != null">
+        accessNum = #{accessnum,jdbcType=INTEGER},
+      </if>
+      <if test="remark != null">
+        remark = #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        `status` = #{status,jdbcType=BIT},
+      </if>
+    </set>
+    where cid = #{cid,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.myyl.pojo.Course">
+    update course
+    set cname = #{cname,jdbcType=VARCHAR},
+      `uid` = #{uid,jdbcType=VARCHAR},
+      startime = #{startime,jdbcType=VARCHAR},
+      updatetime = #{updatetime,jdbcType=VARCHAR},
+      intro = #{intro,jdbcType=VARCHAR},
+      content = #{content,jdbcType=VARCHAR},
+      typeId = #{typeid,jdbcType=VARCHAR},
+      courseImg = #{courseimg,jdbcType=VARCHAR},
+      files = #{files,jdbcType=VARCHAR},
+      total = #{total,jdbcType=VARCHAR},
+      accessNum = #{accessnum,jdbcType=INTEGER},
+      remark = #{remark,jdbcType=VARCHAR},
+      `status` = #{status,jdbcType=BIT}
+    where cid = #{cid,jdbcType=VARCHAR}
+  </update>
+</mapper>
