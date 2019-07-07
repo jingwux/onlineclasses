@@ -1,0 +1,29 @@
+<div style="margin: 15px;" id="formDiv">
+	<form class="layui-form">
+		<input type="hidden" id="cid">
+		<div class="layui-form-item">
+			<label class="layui-form-label">一级章节</label>
+			<div class="layui-input-inline">
+				<select id="cpid" name="cpid">
+					<option value="" selected="">请选择章节名称</option>
+					<!-- <option value="311001">1章 初始C程序</option>
+					<option value="311002">2章 C中数据类型</option>
+					<option value="311003">3章 C中的运算符</option> -->
+				</select>
+			</div>
+		</div>
+		<div class="layui-form-item">
+			<label class="layui-form-label">二级章节</label>
+			<div class="layui-input-block">
+				<input type="text" name="cpname" placeholder="请输入章节名称" autocomplete="off" class="layui-input">
+			</div>
+		</div>
+		<div class="layui-form-item layui-form-text">
+			<label class="layui-form-label">章节内容</label>
+			<div class="layui-input-block">
+				<textarea name="intro" placeholder="请输入内容" class="layui-textarea"></textarea>
+			</div>
+		</div>
+		<button lay-filter="edit" lay-submit style="display: none;"></button>
+	</form>
+</div>

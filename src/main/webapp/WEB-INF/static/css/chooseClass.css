@@ -1,0 +1,193 @@
+body{
+	margin:0px;
+	padding:0px;
+	background-color:#f3f5f7;
+}
+
+#class_kind{
+	width:100%;
+	height:180px;
+	padding-top:20px;
+	background-color:#fff;
+}
+
+.class_kind_class{
+	width:60%;
+	height:auto;
+	margin:auto;
+	border-bottom:1px solid #edf1f2;
+}
+
+#class_kind_class1{
+	position:relative;
+	left:2px;
+	top:8px;
+}
+
+#class_kind_class3{
+	border-bottom:0px;
+}
+
+.kind_span_class{
+	line-height: 60px;
+	font-weight: 700;
+	font-size: 14px;
+	color: #07111b;
+}
+
+.kind_span_class1{
+	line-height: 60px;
+	font-weight: 700;
+	font-size: 14px;
+	color: #07111b;
+	text-align: right;
+	position:relative;
+	left:-600px;
+	top:5px;
+}
+
+
+.classification,.classification1{
+	position:relative;
+	left:70px;
+	top:-55px;
+}
+
+.classification ul,.classification1 ul{
+	padding:0px;
+}
+
+.classification ul li,.classification1 ul li{
+	list-style:none;
+	float:left;
+	/*padding-right:40px;*/
+	font-size:14px;
+	font-family:"微软雅黑";
+	padding:7px 10px 7px 10px;
+	border-radius:2px;
+}
+
+.classification ul li a,.classification1 ul li a{
+	text-decoration:none;
+	color:#1c1f21;
+}
+
+.classification ul li a:hover{
+	text-decoration:none;
+	color:#f01414;
+}
+
+.classification1 ul li a:hover{
+	text-decoration:none;
+	color:#f01414;
+}
+
+#title_btn{
+	width:70%;
+	height:50px;
+	margin:auto;
+}
+
+#title_btn ul{
+	padding:0px;
+	position:relative;
+	left:105px;
+	top:10px;
+}
+
+#title_btn ul li{
+	list-style:none;
+	float:left;
+	padding-right:30px;	
+	font-size:13px;
+	font-family:"微软雅黑";
+}
+
+#title_btn ul li a{
+	color:#4d555d;
+	text-decoration:none;
+}
+
+#class_div{
+	width:70%;
+	height:600px;
+	background-color:#f3f5f7;
+	margin:auto;
+}
+
+#best_class_title img{
+	position:relative;
+	left:500px;
+	top:25px;
+}
+
+.best_class_ctn{
+	width:230px;
+	height:240px;
+	float:left;
+	position:relative;
+	left:100px;
+}
+
+.best_class_ctn img{
+	width:216px;
+	height:120px;
+	border-radius:7px;
+}
+
+.best_class_ctn a{
+	color:#4d555d;
+	text-decoration:none;
+}
+
+.best_class_ctn a:hover{
+	text-decoration:none;
+	color:#f01414;
+}
+
+.best_class_title{
+	width:219px;
+	height:50px;
+	overflow:hidden;
+	position:relative;
+	top:15px;
+	font-size:12px;
+	color:#93999F;
+	padding-right:10px;
+	display:block;
+}
+
+.class_title{
+	font-size:14px;
+	color:#000;
+	position:relative;
+	top:10px;
+}
+
+.class_title:hover{
+	color:#f01414;
+}
+
+/* #pageDiv {
+	font-size:12px;
+	color:#666666;
+	padding-left: 550px;
+	clear:both;
+} */
+/* 
+#pageDiv a {
+	padding-right: 8px;
+	text-decoration:none;
+	color:#666666;
+	
+}
+
+#pageDiv a:hover {
+	text-decoration:none;
+	color:#f01414;	
+}
+ */
+#footer{
+	width:100px;
+}
+

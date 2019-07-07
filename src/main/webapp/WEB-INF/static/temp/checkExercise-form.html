@@ -1,0 +1,40 @@
+<div style="margin: 15px;" id="formDiv">
+	<form class="layui-form">
+		<div class="layui-form-item">
+			<label class="layui-form-label">作业名称</label>
+			<div class="layui-input-block">
+				<input type="text" name="ename" id="ename" placeholder="" autocomplete="off" class="layui-input">
+			</div>
+		</div>
+		<div class="layui-form-item">
+			<label class="layui-form-label">作业要求</label>
+			<div class="layui-input-block">
+				<input type="text" name="demand" id="demand" placeholder="" autocomplete="off" class="layui-input">
+			</div>
+		</div>
+		<div class="layui-form-item">
+			<label class="layui-form-label">附件</label>
+			<a href="" name="attachment" id="attachment" style="position:relative;top:8px;"></a>
+		</div>
+		<div class="layui-form-item layui-form-text">
+			<label class="layui-form-label">作业内容</label>
+			<div class="layui-input-block">
+				<textarea name="exerContent" id="exerContent" class="layui-textarea"></textarea>
+			</div>
+		</div>
+		<div class="layui-form-item">
+			<label class="layui-form-label">分数</label>
+			<div class="layui-input-inline">
+				<input type="text" name="score" id="score" autocomplete="off" class="layui-input"/>
+			</div>
+		</div>
+		<button lay-filter="edit" lay-submit style="display: none;"></button>
+	</form>
+</div>
+<script>
+	$("#attachment").click(function(){
+		alert(111);
+		$(this).attr("href","download?fileName="+$(this).html());
+	});
+		
+</script>

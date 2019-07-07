@@ -1,0 +1,80 @@
+var navs = [{
+	"title": "课程管理",
+	"icon": "fa-diamond",
+	"spread": true,
+	"children": [{
+		"title": "编辑课程",
+		"icon": "&#xe705;",
+		"href": "findCourse"
+	}, {
+		"title": "开课申请",
+		"icon": "&#xe63c;",
+		"href": "approveCourse"
+	}, {
+		"title": "添加课程",
+		"icon": "&#xe67c;",
+		"href": "addCourse"
+	}, {
+		"title": "章节管理",
+		"icon": "fa-industry",
+		"href": "addChapter"
+	}, {
+		"title": "分类管理",
+		"icon": "fa-paper-plane-o",
+		"href": "addType"
+	}, {
+		"title": "资料管理",
+		"icon": "fa-file-text-o",
+		"href": "addData"
+	}, {
+		"title": "问答评论管理",
+		"icon": "&#xe63c;",
+		"href": "deleteCommet"
+	}, /*{
+		"title": "考试管理",
+		"icon": "&#xe63c;",
+		"href": "addExercise"
+	}*/]
+}, {
+	"title": "用户管理",
+	"icon": "&#xe770;",
+	"spread": false,
+	"children": [{
+		"title": "编辑用户",
+		"icon": "fa-edit",
+		"href": "editUser"
+	}/*, {
+		"title": "添加用户",
+		"icon": "fa-navicon",
+		"href": "addUser"
+	}*/]
+}, {
+	"title": "信箱",
+	"icon": "fa-envelope",
+	"href": "",
+	"spread": false,
+	"children": [{
+		"title": "收件箱",
+		"icon": "fa-github",
+		"href": "https://mail.qq.com/",
+	}, {
+		"title": "查看邮件",
+		"icon": "fa-qq",
+		"href": ""
+	}, {
+		"title": "写信",
+		"icon": "&#xe609;",
+		"href": ""
+	}]
+}/*, {
+	"title": "这是一级导航",
+	"icon": "fa-stop-circle",
+	"href": "https://www.baidu",
+	"spread": false
+}*/, {
+	"title": "其他",
+	"icon": "fa-graduation-cap",
+	"href": "#",
+	"spread": false,
+	"children": []
+}];

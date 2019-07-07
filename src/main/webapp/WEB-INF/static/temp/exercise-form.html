@@ -1,0 +1,120 @@
+<link rel="stylesheet" href="../../static/js/plugins/layui/css/layui.css"
+      media="all"/>
+<script type="text/javascript"
+        src="../../static/js/plugins/jquery/jquery-1.11.1.min.js"></script>
+<script type="text/javascript"
+        src="../../static/js/plugins/layui/layui.js"></script>
+<div style="margin: 15px;" id="formDiv">
+    <form id="addExercise" class="layui-form" method="post" enctype="multipart/form-data">
+        <div class="layui-form-item">
+            <label class="layui-form-label">课程名称</label>
+            <div class="layui-input-inline">
+                <input type="hidden" name="cid" id="cid">
+                <input type="text" name="cname" id="cname" placeholder="请输入作业名称" autocomplete="off" class="layui-input">
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <div class="layui-inline">
+                <label class="layui-form-label">截止时间</label>
+                <div class="layui-input-block">
+                    <input type="text" name="endTime" id="endTime" placeholder="yyyy-mm-dd"
+                           autocomplete="off" class="layui-input" onclick="/*layui.laydate({elem: this})*/">
+                </div>
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">作业名称</label>
+            <div class="layui-input-block">
+                <input type="text" name="ename" id="ename" placeholder="请输入作业名称" autocomplete="off" class="layui-input" lay-verify="required">
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">作业要求</label>
+            <div class="layui-input-block">
+                <textarea placeholder="请输入内容"  name="content" id="content"  class="layui-textarea" lay-verify="required"></textarea>
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">作业要求</label>
+            <div class="layui-input-block">
+                <textarea placeholder="请输入内容"  name="demand" id="demand"  class="layui-textarea" lay-verify="required"></textarea>
+            </div>
+        </div>
+
+        <div class="layui-form-item">
+            <label class="layui-form-label">附件</label>
+            <div class="layui-input-inline">
+                <input type="file" name="file" class="layui-input" id="file" style="display:none;" >
+                <button type="button" class="layui-btn" id="test3"><i class="layui-icon"></i>上传文件</button>
+            </div>
+        </div>
+        <br>
+        <div class="layui-form-ite" style="text-align: center;">
+            <button type="button" class="layui-btn" lay-submit lay-filter="submit" id="deployExercise">发布</button>
+        </div>
+    </form>
+</div>
+<script>
+
+    //序列化表单
+    $.fn.extend({
+        serializeObject: function () {
+            var o = {};
+            var a = this.serializeArray();
+            $.each(a, function () {
+                if (this.name !== "file") {//排除文件上传
+                    if (o[this.name]) {
+                        if (!o[this.name].push) {
+                            o[this.name] = [o[this.name]];
+                        }
+                        o[this.name].push(this.value || '');
+                    } else {
+                        o[this.name] = this.value || '';
+                    }
+                }
+            });
+            return o;
+        }
+    });
+
+    $('#test3').click(() => {
+        $('#file').click();
+    });
+
+    layui.use(['form', 'layer', 'laydate', 'upload'], function () {
+        var form = layui.form,
+            layer = layui.layer,
+            laydate = layui.laydate,
+            upload = layui.upload;
+
+        laydate.render({
+            elem: '#endTime'
+        });
+
+
+        form.on('submit(submit)', function () {
+            let formData = new FormData(document.getElementById("addExercise"));
+            $.ajax({
+                url: "../../course/addExercises",
+                data: formData,
+                type: "post",
+                contentType: false,
+                processData: false,
+                success: function (result) {
+                    if (result.success) {
+                        //当你在iframe页面关闭自身时
+                        var index = parent.layer.getFrameIndex(window.name); //先得到当前iframe层的索引
+                        layer.msg('提交成功.', function () {
+                            parent.layer.close(index);
+                        });
+
+                    } else {
+                        layer.alert("提交失败！", {icon: 0});
+                    }
+                }
+
+            });
+
+        });
+    });
+</script>

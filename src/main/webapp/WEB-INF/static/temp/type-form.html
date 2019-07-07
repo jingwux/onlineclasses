@@ -1,0 +1,24 @@
+<div style="margin: 15px;" id="formDiv">
+	<form class="layui-form">
+		<div class="layui-form-item">
+			<div class="layui-form-item">
+				<label class="layui-form-label">课程方向</label>
+				<div class="layui-input-inline">
+					<select name="partype" id="partype">
+						<option value="" selected="">请选择课程方向</option>
+						<!-- <option value="610001">IT互联网</option>
+						<option value="610002">设计创作</option>
+						<option value="610003">语言留学</option> -->
+					</select>
+				</div>
+			</div>
+		</div>
+		<div class="layui-form-item">
+			<label class="layui-form-label">课程类型</label>
+			<div class="layui-input-block">
+				<input type="text" name="ctname" placeholder="请输入课程类型名称" autocomplete="off" class="layui-input">
+			</div>
+		</div>
+		<button lay-filter="edit" lay-submit style="display: none;"></button>
+	</form>
+</div>

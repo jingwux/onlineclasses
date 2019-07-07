@@ -1,0 +1,76 @@
+*{
+    padding: 0;
+    -webkit-tap-highlight-color:rgba(255,255,255,0);-webkit-overflow-scrolling:touch;overflow-scrolling:touch;
+}
+ul {
+    list-style: none;
+}
+a {
+    text-decoration: none;
+}
+.find_nav {
+    width: 80%;
+    height: 45px;
+    background-color: #f9f9f9;
+    font-size:14px;
+    position:relative;
+    top:30px;
+    margin:auto;
+    z-index: 99;
+    border-bottom: 1px solid #ddd;
+    display: -moz-box;
+    display: -webkit-box;
+    display: box;
+}
+.find_nav_left {
+    height: 46px;
+    position: relative;
+    overflow: hidden;
+    -moz-box-flex: 1;
+    -webkit-box-flex: 1;
+    box-flex: 1;
+}
+.find_nav_list {
+    position: absolute;
+    left: 0;
+}
+.find_nav_list ul {
+    position: relative;
+    white-space: nowrap;
+    font-size: 0;
+}
+.find_nav_list ul li {
+    display: inline-block;
+    padding: 0 13px;
+}
+.find_nav_list ul li a {
+    display: block;
+    width: 100%;
+    height: 100%;
+    line-height: 46px;
+    font-size: 14px;
+    text-align: center;
+    color: #666;
+}
+.find_nav_cur a {
+    color: #48a5f4 !important;
+}
+.sideline {
+    display: block;
+    position: absolute;
+    border: 0;
+    height: 2px;
+    background-color: #48a5f4;
+    left: 0;
+    top: 43px;
+    pointer-events: none;
+}
+.search_logo {
+    display: block;
+    width: 44px;
+    height: 45px;
+    line-height: 45px;
+    text-align: center;
+    font-size: 14px;
+    color: #48a5f4;
+}

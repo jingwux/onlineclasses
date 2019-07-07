@@ -1,0 +1,148 @@
+body{
+	margin:0px;
+	padding:0px;
+	background-color:#edf1f2;	
+}
+
+#title_css{
+	width:100%;
+	height:72px;
+	background-color:#14191e;
+}
+
+.img_span{
+	width:70px;
+	height:60px;
+	z-index:3;
+}
+
+.img_span img{
+	position:relative;
+	left:10px;
+	top:7px;
+}
+
+.class_name{
+	font-size: 14px;
+	color: #b5b9bc;
+	position:absolute;
+	left:100px;
+	top:28px;
+}
+
+.chapter_name{
+	color: #787d82;
+	font-size: 12px;
+	margin-left:10px;
+}
+
+#main_content{
+	width:100%;
+	height:600px;
+	background-color:#edf1f2;	
+}
+
+#chapter{
+	display:display;
+}
+
+#chapter_title{
+	width:95%;
+	height:53px;
+	margin:auto;
+	border-bottom:1px solid #d0d6d9;
+	border-bottom: 1px solid #d0d6d9;
+	font-size: 16px;
+	font-weight: 600;
+	font-family: "微软雅黑";
+	color: #14191e;
+	line-height:53px;
+}
+
+#chapter_content{
+	width:90%;
+	color: #1f2426;
+	font-size:12px;
+	display:block;
+	word-wrap:break-word; 
+	overflow:hidden;
+}
+
+#chapter_content pre{
+	padding-left:50px;
+}
+
+.start_exercise ul{
+	padding:0px;
+	margin-left:50px;
+}
+
+.start_exercise ul li{
+	list-style:none;
+	width:500px;
+	height:50px;
+}
+
+input{
+	width:300px;
+	border: 1px solid #ccc;
+	padding: 7px 0px;
+	border-radius: 3px;
+	padding-left: 5px;
+	-webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+	box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+	-webkit-transition: border-color ease-in-out .15s, -webkit-box-shadow
+		ease-in-out .15s;
+	-o-transition: border-color ease-in-out .15s, box-shadow ease-in-out
+		.15s;
+	transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+	position:relative;
+}
+
+input:focus {
+	border-color: #66afe9;
+	outline: 0;
+	-webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px
+		rgba(102, 175, 233, .6);
+	box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px
+		rgba(102, 175, 233, .6)
+}
+
+.finish{
+	width:75px;
+	font-size:14px;
+	background-color:#152a25;
+	position:relative;
+	left:850px;
+	top:-36px;
+	color:#fff;
+	border-radius:3px;
+}
+
+.font_css{
+	font-size:13px;
+	color:#152a25;
+	position:relative;
+	left:0px;
+	margin-bottom:25px;
+}
+
+#main_content{
+	position:relative;
+	top:-11px;
+}
+
+#exercise_div{
+	padding-top:10px;
+	display:block;
+	height:800px;
+}
+
+.a_css{
+	text-decoration:none;
+	color:#152a25;
+}
+
+.a_css:hover{
+	color:#29b8c2;
+}
