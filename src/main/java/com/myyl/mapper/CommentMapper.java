@@ -5,6 +5,14 @@ import com.myyl.pojo.CommentExample;
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
 
+/**
+ * @Author: myyl
+ * @Time: 2019/5/20 - 13:14
+ * @Description:
+ * @See: <a href=" https://github.com/yuanqingx/onlineclasses"> https://github.com/yuanqingx/onlineclasses</a>
+ */
+
+
 public interface CommentMapper {
     long countByExample(CommentExample example);
 

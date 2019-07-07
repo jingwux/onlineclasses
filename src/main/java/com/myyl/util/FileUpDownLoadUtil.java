@@ -6,11 +6,15 @@ import java.io.*;
 import java.net.URLEncoder;
 
 
+
 /**
- * 功能：文件上传下载工具类
- * @author
- * @date 2017-11-14
+ * @Author: myyl
+ * @Time: 2019/5/20 - 13:14
+ * @Description:
+ * @See: <a href=" https://github.com/yuanqingx/onlineclasses"> https://github.com/yuanqingx/onlineclasses</a>
  */
+
+
 public final class FileUpDownLoadUtil {
 
 	/**

@@ -7,6 +7,14 @@ import com.myyl.vo.ChapterVO;
 
 import java.util.List;
 
+/**
+ * @Author: myyl
+ * @Time: 2019/5/20 - 13:14
+ * @Description:
+ * @See: <a href=" https://github.com/yuanqingx/onlineclasses"> https://github.com/yuanqingx/onlineclasses</a>
+ */
+
+
 public interface ChapterService {
 
     long countByExample(ChapterExample example);

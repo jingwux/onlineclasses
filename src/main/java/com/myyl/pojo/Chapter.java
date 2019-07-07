@@ -2,10 +2,15 @@ package com.myyl.pojo;
 
 import java.io.Serializable;
 
+
 /**
- * chapter
- * @author 
+ * @Author: myyl
+ * @Time: 2019/5/20 - 13:14
+ * @Description:
+ * @See: <a href=" https://github.com/yuanqingx/onlineclasses"> https://github.com/yuanqingx/onlineclasses</a>
  */
+
+
 public class Chapter implements Serializable {
     private String cpid;
 

@@ -6,12 +6,15 @@ import com.myyl.vo.CourseTypeVO;
 
 import java.util.List;
 
+
 /**
- * 功能：课程类型业务层接口
- *
- * @author
- * @date
+ * @Author: myyl
+ * @Time: 2019/5/20 - 13:14
+ * @Description:
+ * @See: <a href=" https://github.com/yuanqingx/onlineclasses"> https://github.com/yuanqingx/onlineclasses</a>
  */
+
+
 public interface CourseTypeService {
 
     String COURSE_TYPE_DIRECTION_ID = "0";  //  parType=0的数据为课程方向

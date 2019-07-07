@@ -6,6 +6,14 @@ import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
+/**
+ * @Author: myyl
+ * @Time: 2019/5/20 - 13:14
+ * @Description:
+ * @See: <a href=" https://github.com/yuanqingx/onlineclasses"> https://github.com/yuanqingx/onlineclasses</a>
+ */
+
+
 public interface QuestionMapper {
     long countByExample(QuestionExample example);
 

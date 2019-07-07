@@ -22,6 +22,14 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * @Author: myyl
+ * @Time: 2019/5/20 - 13:14
+ * @Description:
+ * @See: <a href=" https://github.com/yuanqingx/onlineclasses"> https://github.com/yuanqingx/onlineclasses</a>
+ */
+
+
 public class HttpClientUtil {
 	private RequestConfig requestConfig = RequestConfig.custom()
 			.setSocketTimeout(15000).setConnectTimeout(15000)

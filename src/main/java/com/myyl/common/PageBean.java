@@ -3,6 +3,14 @@ package com.myyl.common;
 import java.util.List;
 
 /**
+ * @Author: myyl
+ * @Time: 2019/5/20 - 13:14
+ * @Description:
+ * @See: <a href=" https://github.com/yuanqingx/onlineclasses"> https://github.com/yuanqingx/onlineclasses</a>
+ */
+
+
+/**
  * 分页相关数据实体类
  * @author
  * @param <T>

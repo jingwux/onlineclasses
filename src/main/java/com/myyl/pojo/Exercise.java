@@ -3,6 +3,15 @@ package com.myyl.pojo;
 import com.fasterxml.jackson.annotation.JsonFormat;
 
 import java.util.Date;
+
+/**
+ * @Author: myyl
+ * @Time: 2019/5/20 - 13:14
+ * @Description:
+ * @See: <a href=" https://github.com/yuanqingx/onlineclasses"> https://github.com/yuanqingx/onlineclasses</a>
+ */
+
+
 @JsonFormat
 public class Exercise {
     private String eid;

@@ -16,11 +16,15 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 
+
 /**
- * 功能：问题答疑业务层实现
- * @author
- * @date
+ * @Author: myyl
+ * @Time: 2019/5/20 - 13:14
+ * @Description:
+ * @See: <a href=" https://github.com/yuanqingx/onlineclasses"> https://github.com/yuanqingx/onlineclasses</a>
  */
+
+
 @Service
 @Transactional
 public class QuestionServiceImpl implements QuestionService {

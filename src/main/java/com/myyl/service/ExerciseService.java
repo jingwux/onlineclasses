@@ -5,12 +5,15 @@ import com.myyl.vo.ExeriseVO;
 
 import java.util.List;
 
+
 /**
- * 功能：作业业务层接口
- *
- * @author
- * @date
+ * @Author: myyl
+ * @Time: 2019/5/20 - 13:14
+ * @Description:
+ * @See: <a href=" https://github.com/yuanqingx/onlineclasses"> https://github.com/yuanqingx/onlineclasses</a>
  */
+
+
 public interface ExerciseService {
 
     List<Exercise> getExerciseInfo(String id); //通过编号获取作业信息

@@ -2,10 +2,15 @@ package com.myyl.pojo;
 
 import java.io.Serializable;
 
+
 /**
- * work
- * @author 
+ * @Author: myyl
+ * @Time: 2019/5/20 - 13:14
+ * @Description:
+ * @See: <a href=" https://github.com/yuanqingx/onlineclasses"> https://github.com/yuanqingx/onlineclasses</a>
  */
+
+
 public class Work implements Serializable {
     private Integer wid;
 

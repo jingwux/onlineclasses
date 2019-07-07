@@ -2,11 +2,15 @@ package com.myyl.util;
 
 import java.sql.*;
 
+
 /**
- * 功能:JDBC连接
- * @author
- * @date
+ * @Author: myyl
+ * @Time: 2019/5/20 - 13:14
+ * @Description:
+ * @See: <a href=" https://github.com/yuanqingx/onlineclasses"> https://github.com/yuanqingx/onlineclasses</a>
  */
+
+
 public class JDBCUtils {
 	
 	private static String url = "jdbc:mysql://localhost:3306/hl_curriculum";

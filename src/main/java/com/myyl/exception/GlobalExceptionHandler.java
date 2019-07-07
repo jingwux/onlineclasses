@@ -7,9 +7,12 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * 全局异常处理切面类
- *
+ * @Author: myyl
+ * @Time: 2019/5/20 - 13:14
+ * @Description: 全局异常处理切面类
+ * @See: <a href=" https://github.com/yuanqingx/onlineclasses"> https://github.com/yuanqingx/onlineclasses</a>
  */
+
 
 public class GlobalExceptionHandler implements HandlerExceptionResolver {
 

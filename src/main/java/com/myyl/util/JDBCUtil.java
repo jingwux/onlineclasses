@@ -9,14 +9,15 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+
 /**
- * 工具类
- * 1. 初始化C3P0连接池
- * 2. 创建DbUtils核心工具类对象
- * @Date
- * @author
- *
+ * @Author: myyl
+ * @Time: 2019/5/20 - 13:14
+ * @Description:
+ * @See: <a href=" https://github.com/yuanqingx/onlineclasses"> https://github.com/yuanqingx/onlineclasses</a>
  */
+
+
 public final class JDBCUtil {
 
 	/**

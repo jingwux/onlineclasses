@@ -10,12 +10,15 @@ import java.util.Date;
 import java.util.Properties;
 
 
+
 /**
- * 功能：发送邮件工具类
- *
- * @author
- * @date
+ * @Author: myyl
+ * @Time: 2019/5/20 - 13:14
+ * @Description:
+ * @See: <a href=" https://github.com/yuanqingx/onlineclasses"> https://github.com/yuanqingx/onlineclasses</a>
  */
+
+
 public final class MailUtil {
 
     public static Properties props;
@@ -33,7 +36,7 @@ public final class MailUtil {
         session = Session.getDefaultInstance(props, new Authenticator() {
             @Override
             protected PasswordAuthentication getPasswordAuthentication() {
-                return new PasswordAuthentication("2847928571@qq.com", "ennieeeblierdfad");
+                return new PasswordAuthentication("email", "password");
             }
         });
     }
@@ -41,7 +44,7 @@ public final class MailUtil {
     public static void sendMail(User user) throws MessagingException {
 
         MimeMessage msg = new MimeMessage(session);
-        msg.setFrom(new InternetAddress("2847928571@qq.com"));
+        msg.setFrom(new InternetAddress("email"));
         msg.setSubject("激活邮件");
         msg.setSentDate(new Date());
         msg.setRecipient(RecipientType.TO, new InternetAddress(user.getEmail()));
@@ -60,8 +63,8 @@ public final class MailUtil {
         try {
             msg.setSubject("反馈邮件");
             msg.setSentDate(new Date());
-            msg.setSender(new InternetAddress("chenbb68@163.com"));
-            msg.setRecipient(RecipientType.TO, new InternetAddress("chenbb68@163.com"));
+            msg.setSender(new InternetAddress("email"));
+            msg.setRecipient(RecipientType.TO, new InternetAddress("email"));
             msg.setContent(user.getRemark() + "<br/>发送者：" + user.getUname() + "<br/>邮箱：" + user.getEmail(), "text/html;charset=utf-8");
 
             //4)发送邮件

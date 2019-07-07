@@ -7,12 +7,15 @@ import com.myyl.vo.CourseVO;
 
 import java.util.List;
 
+
 /**
- * 功能：课程业务层接口
- *
- * @author
- * @date
+ * @Author: myyl
+ * @Time: 2019/5/20 - 13:14
+ * @Description:
+ * @See: <a href=" https://github.com/yuanqingx/onlineclasses"> https://github.com/yuanqingx/onlineclasses</a>
  */
+
+
 public interface CourseService {
 
      Integer STUDENT = 1;
