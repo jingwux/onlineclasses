@@ -5,6 +5,7 @@ Servlet项目 -> SSM项目
 #### 技术：
 
 SSM
+Lombok
 Tomcat8
 MySQL57
 JSP
