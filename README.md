@@ -4,13 +4,13 @@ Servlet项目 -> SSM项目
 
 #### 技术：
 
-SSM 
-Lombok 
-Tomcat8 
-MySQL57 
-JSP 
-JQuery 
-EasyUI 2.x 
+ SSM 
+ Lombok 
+ Tomcat8 
+ MySQL57 
+ JSP 
+ JQuery 
+ EasyUI 2.x 
 
 ####   要点：
 
