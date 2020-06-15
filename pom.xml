@@ -36,7 +36,7 @@
     <commons-dbutils.version>1.7</commons-dbutils.version>
     <commons-fileupload.version>1.4</commons-fileupload.version>
     <commons-beanutils.version>1.8.0</commons-beanutils.version>
-    <commons-collections.version>3.2.1</commons-collections.version>
+    <commons-collections.version>3.2.2</commons-collections.version>
   </properties>
 
   <dependencies>
