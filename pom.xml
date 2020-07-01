@@ -24,7 +24,7 @@
     <mybatis.pagehelper.version>5.1.8</mybatis.pagehelper.version>
     <mysql.version>5.1.47</mysql.version>
     <slf4j.version>1.7.25</slf4j.version>
-    <log4j.version>2.11.1</log4j.version>
+    <log4j.version>2.13.2</log4j.version>
     <jackson.version>2.9.7</jackson.version>
     <httpclient.version>4.5.6</httpclient.version>
     <jstl.version>1.2</jstl.version>
