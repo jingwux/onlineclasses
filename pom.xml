@@ -32,7 +32,7 @@
     <jsp-api.version>2.0</jsp-api.version>
     <commons-lang.version>2.5</commons-lang.version>
     <commons-lang3.version>3.8.1</commons-lang3.version>
-    <commons-io.version>2.6</commons-io.version>
+    <commons-io.version>2.7</commons-io.version>
     <commons-dbutils.version>1.7</commons-dbutils.version>
     <commons-fileupload.version>1.4</commons-fileupload.version>
     <commons-beanutils.version>1.8.0</commons-beanutils.version>
